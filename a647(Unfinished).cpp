@@ -14,20 +14,21 @@ while (scanf("%d",&n)!=EOF)
 	}
 	for (j=0;j<n;j++)
 	{
-		earn=(((worth[j]-inve[j]))*10000/inve[j]);
-		tmp=(((worth[j]-inve[j]))*100000/inve[j]);
+		earn=(((worth[j]-inve[j]))*100000/inve[j]);
+		tmp=(((worth[j]-inve[j]))*1000000/inve[j]);
 		if (tmp%10>=5)
 		{
-			earn++;
+			earn=earn+1;
+			earn=earn-(tmp%10)*0.1;
 		}
-		float final=(float)(earn/10000);
+		float final=earn/1000;
 		if (final==(-0.00))
 		{
 			printf("0.00");
 		}
 		else
 		{
-			printf("%.2f",earn);
+			printf("%.2f",final);
 		}
 		if (final>=10.00||final<=-7.00)
 		{
@@ -49,3 +50,4 @@ while (scanf("%d",&n)!=EOF)
 
 	return 0;
 }
+
