@@ -24,7 +24,7 @@ while(scanf("%d",&n)!=EOF)
 		int time;
 		scanf("%d",&time);
 		int u=0;
-		u=mazerun(time+1,maze,0);
+		u=mazerun(time,maze,0);
 		printf("%d\n",u);
 	}
 }
@@ -41,7 +41,10 @@ int mazerun(int t,int maze[100][5],int posi)
 	static int u=0;
 	if ((u==t)||(maze[posi][4]==1))
 	{
-		return;
+		n++;
+		u=0;
+		goto start;
+
 	}
 	else
 	{
@@ -50,5 +53,9 @@ int mazerun(int t,int maze[100][5],int posi)
 		mazerun(t,maze,maze[posi][2]-1);
 		mazerun(t,maze,maze[posi][3]-1);
 		
-	}	
+	}
+	start:
+	int k=n;
+	n=0;
+	return k;	
 }
